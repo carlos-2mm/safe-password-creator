@@ -15,7 +15,25 @@ function generatePassword() {
     alert("Please enter a valid number between 8 and 128.");
     return "";
   }
-  
+
+  // Ask user for character types to include
+  var includeLowercase = confirm("Include lowercase characters?");
+  var includeUppercase = confirm("Include uppercase characters?");
+  var includeNumeric = confirm("Include numeric characters?");
+  var includeSpecial = confirm("Include special characters?");
+
+  // Check if the user selected at least one character type
+  if (!(includeLowercase || includeUppercase || includeNumeric || includeSpecial)) {
+    alert("Please select at least one character type.");
+    return "";
+  }
+
+  // Character set based on user choices
+  var characterSet = "";
+  if (includeLowercase) characterSet = characterSet.concat (lowercase);
+  if (includeUppercase) characterSet = characterSet.concat (uppercase);
+  if (includeNumeric) characterSet = characterSet.concat (numeric);
+  if (includeSpecial) characterSet = characterSet.concat (special);
 }
   
 
