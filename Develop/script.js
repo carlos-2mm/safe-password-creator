@@ -34,8 +34,17 @@ function generatePassword() {
   if (includeUppercase) characterSet = characterSet.concat (uppercase);
   if (includeNumeric) characterSet = characterSet.concat (numeric);
   if (includeSpecial) characterSet = characterSet.concat (special);
+
+  // Generate the random password
+  var password = "";
+  for (var i = 0; i < passwordLength; i++) {
+    var randomPassword = Math.floor(Math.random() * characterSet.length);
+    password = password + characterSet[randomPassword];
+  }
+
+  return password;
+
 }
-  
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
